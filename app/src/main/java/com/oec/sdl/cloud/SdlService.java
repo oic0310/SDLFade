@@ -65,7 +65,8 @@ public class SdlService extends Service {
 	// TCP/IP transport config
 	// The default port is 12345
 	// The IP is of the machine that is running SDL Core
-	private static final int TCP_PORT = 14385;
+	//private static final int TCP_PORT = 14385;
+	private int TCP_PORT = 0;
 	private static final String DEV_MACHINE_IP_ADDRESS = "m.sdl.tools";
 
 	// variable to create and call functions of the SyncProxy
@@ -73,9 +74,11 @@ public class SdlService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
+		int result = intent.getIntExtra( "port", 0 );
+		Log.d("onBind",String.valueOf(result));
+		TCP_PORT = result;
 		return null;
 	}
-
 	@Override
 	public void onCreate() {
 		Log.d(TAG, "onCreate");
@@ -151,6 +154,9 @@ public class SdlService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		int result = intent.getIntExtra( "port", 0 );
+		Log.d("onStartCommand",String.valueOf(result));
+		TCP_PORT = result;
 		startProxy();
 		return START_STICKY;
 	}
