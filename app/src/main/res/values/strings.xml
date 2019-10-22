@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">SDLクラウド連携</string>
+    <string name="app_name">フェード現象</string>
+    <string name="shift_status_label">シフト状態</string>
 </resources>

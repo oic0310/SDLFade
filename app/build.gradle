@@ -7,7 +7,7 @@ android {
         sourceCompatibility = "8"
     }
     defaultConfig {
-        applicationId "com.oec.sdl.cloud"
+        applicationId "com.oec.sdl.fade"
         minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
